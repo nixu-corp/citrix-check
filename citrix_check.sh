@@ -268,7 +268,7 @@ function check_forensics_iocs {
   echo "### Checking known IOCs from all *.gz-files on disk"
   echo
   echo '```'
-  find . -type f -name \*.gz -exec zgrep -E -aHi "138[.]68\.14\.63|95\.179\.163\.186|185\.178\.45\.221|159\.69\.37\.196|d3SY1erQ|2zds3h2T|8xNac8At|UrJnnijX" '{}' \;
+  find . -type f -name \*.gz -exec zgrep -E -aHi "138\.68\.14\.63|95\.179\.163\.186|185\.178\.45\.221|159\.69\.37\.196|d3SY1erQ|2zds3h2T|8xNac8At|UrJnnijX" '{}' \;
   echo '```'
   echo
 }
