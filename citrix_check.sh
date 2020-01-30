@@ -4,7 +4,7 @@
 function print_help {
   SCRIPT="citrix_check.sh"
 
-  echo "$SCRIPT version 0.1.0 by Taneli Kaivola / Nixu"
+  echo "$SCRIPT version 0.1.1 by Taneli Kaivola / Nixu"
   echo
   echo '```'
   echo "Usage: $SCRIPT [options] -t TARGET"
@@ -102,20 +102,20 @@ function check_config_ssl {
   echo '```'
   for f in *.crt; do
     if [ -f "${f//.crt}.key" ]; then
-      echo "openssl x509 -in \"$f\" -noout -text"
-      openssl x509 -in "$f" -noout -text | grep "Validity" -A 2
+      echo "$ openssl x509 -in \"$f\" -noout -text | grep -E \"Validity|Subject:|Subject Alternative Name:\" -A 2"
+      openssl x509 -in "$f" -noout -text | grep -E "Validity|Subject:|Subject Alternative Name:" -A 2
     fi
   done
   for f in *.cert; do
     if [ -f "${f//.cert}.key" ]; then
-      echo "openssl x509 -in \"$f\" -noout -text"
-      openssl x509 -in "$f" -noout -text | grep "Validity" -A 2
+      echo "$ openssl x509 -in \"$f\" -noout -text | grep -E \"Validity|Subject:|Subject Alternative Name:\" -A 2"
+      openssl x509 -in "$f" -noout -text | grep -E "Validity|Subject:|Subject Alternative Name:" -A 2
     fi
   done
   for f in *.pem; do
     if [ -f "${f//.pem}.key" ]; then
-      echo "openssl x509 -in \"$f\" -noout -text"
-      openssl x509 -in "$f" -noout -text | grep "Validity" -A 2
+      echo "$ openssl x509 -in \"$f\" -noout -text | grep -E \"Validity|Subject:|Subject Alternative Name:\" -A 2"
+      openssl x509 -in "$f" -noout -text | grep -E "Validity|Subject:|Subject Alternative Name:" -A 2
     fi
   done
   echo '```'
@@ -156,7 +156,9 @@ function check_nshttp_profile_ids {
 
   echo "#### List of all files in nshttp_profile_ids"
   echo 
-  ls -la ./run/nshttp_profile_ids/
+  echo '```'
+  ls -lart ./run/nshttp_profile_ids/
+  echo '```'
 
   echo "#### List of IOCs in nshttp_profile_ids"
   echo 

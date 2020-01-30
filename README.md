@@ -1,5 +1,5 @@
 # citrix-check
-citrix_check.sh version 0.1.0 by Taneli Kaivola / Nixu
+citrix_check.sh version 0.1.1 by Taneli Kaivola / Nixu
 
 ```
 Usage: citrix_check.sh [options] -t TARGET
